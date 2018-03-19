@@ -1,6 +1,7 @@
 <template>
   <div
     :class="'text_body_layout' + (visible?'':' greyedout')">
+    <span style="margin-left:3rem; margin-top:3rem;" v-show="!visible">Search or create Title to edit. Document auto-saves.</span>
     <textarea
       id="textarea"
       class="textarea"
