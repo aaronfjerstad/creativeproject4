@@ -209,6 +209,20 @@ let modifyData = (name, data) => {
 addData("Example", {text:"Example text."});
 // removeData("Example");
 
+function makeid(length) {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < length; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
+for(var i = 0; i < 10000; i++) {
+  addData(makeid(10),{text:makeid(1000)});
+}
+
 let encode = (string) => {
   if(string === undefined) {
     return undefined;

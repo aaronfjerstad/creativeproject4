@@ -56,8 +56,10 @@ export default {
     color: #8C7B86;
   }
   .inner_layout {
+    min-height: 80%;
     margin: 1.5rem;
     margin-top: 3rem;
+    overflow-y: auto;
   }
   .result_div {
     font-weight: bold;

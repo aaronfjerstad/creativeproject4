@@ -4,9 +4,6 @@
       &nbsp;
     </div>
     <div class="copyright">&copy;Aaron Fjerstad 2018</div>
-    <div class="fill">
-      &nbsp;
-    </div>
   </div>
 </template>
 
