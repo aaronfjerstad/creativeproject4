@@ -40,8 +40,8 @@ class TextStore {
       if(!(typeof key === 'string')) {
         return false;
       }
-      else if(key.length === 0) {
-        this.children = this.children.filter(val=>val!==value);
+      else if(key.length === 0 && this.values !== undefined) {
+        this.values = this.values.filter(val=>val!==value);
       }
       else {
         let current = key.charAt(0);
@@ -104,7 +104,7 @@ class TextStore {
 
     this.add = (string) => {
       if(this.contains(string)) {
-        console.log("Already contains " + string);
+        // console.log("Already contains " + string);
         return false;
       }
       // print("Starting add", string);
@@ -116,7 +116,9 @@ class TextStore {
     };
 
     this.remove = (string) => {
+      // console.log("Attempting to remove " + string);
       if(!this.contains(string)) {
+        // console.log("Can't remove non-present " + string);
         return false;
       }
       this._remove(string, string);
@@ -178,8 +180,10 @@ let addData = (name, data) => {
 let removeData = (name) => {
   if(DATA.hasOwnProperty(name) && NAMES.remove(name)) {
     delete DATA[name];
+    // console.log("removed " + name);
     return true;
   }
+  // console.log("couldn't remove " + name);
   return false;
 };
 
@@ -203,6 +207,7 @@ let modifyData = (name, data) => {
 };
 
 addData("Example", {text:"Example text."});
+// removeData("Example");
 
 let encode = (string) => {
   if(string === undefined) {

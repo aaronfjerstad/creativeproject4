@@ -4,12 +4,12 @@
       <span class="logotext">Tex</span>
     </div>
     <span class="fill">&nbsp;</span>
-    <div class="create_layout">
-      <form @submit="onCreate">
-        <input class="modern" type="text" v-model="text" placeholder="Title Name"/>
-        <input class="modern" type="submit" value="Create Title"/>
+    <!-- <div class="create_layout"> -->
+      <form class="create_layout" @submit="onCreate">
+        <input class="modern" type="text" v-model="text" placeholder="New Title Name"/>
+        <button class="modern" @click="onCreate"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </form>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -58,6 +58,8 @@ export default {
     flex-grow: 1;
   }
   .create_layout {
+    display: flex;
+    flex-direction: row;
     vertical-align: middle;
     margin-top: 50%;
     padding-right: 3rem;
@@ -67,23 +69,30 @@ export default {
   }
 
   input.modern[type="text"] {
+    display: inline;
     background-color: rgba(255,255,255,.2);
     border:none;
     box-sizing: border-box;
     height: 3rem;
     border-radius: 1.5rem;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  input.modern[type="submit"] {
+  button.modern {
+    display: inline;
     height: 3rem;
     box-sizing: border-box;
     background-color: rgba(0,0,0,0.4);
     color: #8C7B86;
     border:none;
     border-radius: 1.5rem;
-    padding-left: 1.5rem;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding-left: 1rem;
     padding-right: 1.5rem;
+    cursor: pointer;
   }
 </style>

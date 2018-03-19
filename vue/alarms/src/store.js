@@ -31,6 +31,9 @@ export default new Vuex.Store({
     setSearchResults: (state, payload) => {
       state.stateSearchResults = payload;
     },
+    removeSearchResult: (state, payload) => {
+      state.stateSearchResults = state.stateSearchResults.filter(val=>val!==payload);
+    },
     setDocTitle: (state, payload) => {
       state.stateDocTitle = payload;
     },
@@ -86,13 +89,18 @@ export default new Vuex.Store({
           commit('setDoc', {});
         });
     },
-    deleteDoc: ({commit}, title) => {
+    deleteDoc: ({commit, getters}, title) => {
       axios.delete('/api/data/' + window.btoa(title))
         .then(resp => {
-          commit('setDocTitle', "");
-          commit('setDoc', {});
+          // console.log("Deleted " + title);
+          if(title === getters.docTitle) {
+            // console.log("Was current");
+            commit('setDocTitle', "");
+            commit('setDoc', {});
+          }
+          commit('removeSearchResult', title);
         }).catch(err => {
-
+          console.log("Couldn't delete " + title);
         });
     }
   }

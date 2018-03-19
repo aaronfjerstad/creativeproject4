@@ -3,7 +3,8 @@
     <results
       :results="results"
       @search="onSearch($event)"
-      @getdoc="onGetDoc($event)">
+      @getdoc="onGetDoc($event)"
+      @deldoc="onDelDoc($event)">
     </results>
     <editor
       :visible="visible"
@@ -51,6 +52,10 @@ export default {
     onGetDoc(getDocEvent) {
       // console.log(getDocEvent);
       this.$store.dispatch('getDoc', getDocEvent);
+    },
+    onDelDoc(delDocEvent) {
+      console.log("Receiving " + delDocEvent);
+      this.$store.dispatch('deleteDoc', delDocEvent);
     }
   },
   watch: {
