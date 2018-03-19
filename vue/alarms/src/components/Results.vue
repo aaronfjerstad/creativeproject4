@@ -10,9 +10,9 @@
         <!-- <input class="modern" type="submit" value="Search"/> -->
       </form>
 
-      <div class="result_div" v-for="result in computedResults">
-        <span class="result_delete" @click="onDelete(result)">x</span>
-        <span class="result_text" @click="onClickResult(result)">{{result}}</span>
+      <div class="result_div" v-for="result in computedResults" @click="onClickResult(result)">
+        <span class="result_delete" @click.stop="onDelete(result)">x</span>
+        <span class="result_text">{{result}}</span>
       </div>
     </div>
   </div>

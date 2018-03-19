@@ -71,7 +71,7 @@ export default {
     background-color: rgba(100,100,100,1);
   }
   .textarea {
-    width: 100%;
+    /* width: 100%; */
     height: 100;
     resize: none;
     background-color: #666150;
