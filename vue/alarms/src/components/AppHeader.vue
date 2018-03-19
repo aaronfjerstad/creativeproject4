@@ -1,7 +1,7 @@
 <template>
   <div class="app_header_layout">
     <div class="logo">
-      <span class="logotext">Tex Notepad</span>
+      <span class="logotext">Tex</span>
     </div>
     <span class="fill">&nbsp;</span>
     <div class="create_layout">
